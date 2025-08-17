@@ -25,20 +25,22 @@ It includes a simple web UI and a JSON API, and is fully containerized with Dock
 ---
 
 ## 📦 Project Structure
+
+```text
 object-detection-flask/
-│── app.py # Main Flask app
-│── Dockerfile # Deployment config
-│── requirements.txt # Python dependencies
-│── .gitignore # Git ignore rules
-│── models/
-│ └── catdog_yolov8n.pt # YOLOv8 model weights
-│ └── classes.txt # Class labels (cat, dog)
-│── static/
-│ └── style.css # Styling for frontend
-│── templates/
-│ ├── index.html # Upload page
-│ └── result.html # Results page
-│── README.md # Project description
+├─ app.py                # Main Flask app
+├─ Dockerfile            # Deployment config
+├─ requirements.txt      # Python dependencies
+├─ .gitignore            # Git ignore rules
+├─ models/
+│  ├─ catdog_yolov8n.pt  # YOLOv8 model weights
+│  └─ classes.txt        # Class labels (cat, dog)
+├─ static/
+│  └─ style.css          # Styling for frontend
+├─ templates/
+│  ├─ index.html         # Upload page
+│  └─ result.html        # Results page
+└─ README.md             # Project description
 
 ---
 
