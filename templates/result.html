@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Detections</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Detections</h1>
+      <a class="back" href="/">← Try another image</a>
+    </header>
+
+    <section class="image-card">
+      <img alt="Annotated result" src="data:image/png;base64, {{ img_b64 }}" />
+    </section>
+
+    <section class="card">
+      <h2>Detected Objects</h2>
+      {% if detections %}
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Class</th>
+            <th>Confidence</th>
+            <th>BBox [x1, y1, x2, y2]</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for d in detections %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <td>{{ d.class_name }}</td>
+              <td>{{ '%.3f' % d.confidence }}</td>
+              <td>{{ d.bbox_xyxy }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+        <p><em>No objects detected.</em></p>
+      {% endif %}
+    </section>
+
+    <footer>
+      <p>Classes: {{ classes | join(', ') }}</p>
+    </footer>
+  </div>
+</body>
+</html>

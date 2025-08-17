@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Cats & Dogs Detector</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🐾 Cats & Dogs Detector</h1>
+      <p class="subtitle">YOLOv8 · CPU-only · Max upload {{ max_mb }} MB</p>
+    </header>
+
+    {% if error %}
+      <div class="alert">{{ error }}</div>
+    {% endif %}
+
+    <section class="card">
+      <h2>Upload an image</h2>
+      <form action="/predict" method="post" enctype="multipart/form-data" class="upload-form">
+        <input type="file" name="file" accept="image/*" required />
+        <button type="submit">Detect</button>
+      </form>
+    </section>
+
+    <details class="details">
+      <summary>Classes</summary>
+      <ul>
+        {% for c in classes %}
+          <li>{{ c }}</li>
+        {% endfor %}
+      </ul>
+    </details>
+
+    <footer>
+      <p>Made with Flask + Ultralytics YOLOv8</p>
+    </footer>
+  </div>
+</body>
+</html>

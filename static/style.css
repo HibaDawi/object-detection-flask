@@ -1,0 +1,74 @@
+:root {
+  --bg: #f6f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #3b82f6;
+  --accent-2: #2563eb;
+  --border: #e5e7eb;
+  --shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+
+.container {
+  max-width: 980px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+h1 { margin: 0; font-size: 28px; }
+.subtitle { color: var(--muted); margin-top: 6px; }
+
+.card, .image-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  margin: 18px 0;
+}
+
+.image-card img {
+  display: block;
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.upload-form { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+input[type="file"] { padding: 8px; background: #fafafa; border: 1px dashed var(--border); border-radius: 10px; }
+button {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff; font-weight: 600; cursor: pointer;
+}
+button:hover { background: var(--accent-2); }
+
+.details { margin-top: 10px; }
+.details summary { cursor: pointer; color: var(--muted); }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px 8px; border-bottom: 1px solid var(--border); text-align: left; }
+th { background: #f9fafb; }
+
+.alert {
+  background: #fff3cd;
+  color: #7c5a00;
+  border: 1px solid #ffe69c;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+}
+
+.back {
+  text-decoration: none; color: var(--accent);
+  font-weight: 600;
+}
+.back:hover { color: var(--accent-2); }
+footer { color: var(--muted); margin-top: 8px; }
