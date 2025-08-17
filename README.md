@@ -41,7 +41,7 @@ object-detection-flask/
 │  ├─ index.html         # Upload page
 │  └─ result.html        # Results page
 └─ README.md             # Project description
-
+```text
 ---
 
 ## ▶️ Run Locally (Docker)
