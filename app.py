@@ -47,14 +47,14 @@ def _infer_and_annotate(pil_img: Image.Image, conf=0.25, iou=0.5):
     img = np.array(pil_img.convert("RGB"))
 
     # Optional: downscale very large images to speed up CPU inference
-    max_side = 1280
+    max_side = 960
     h, w = img.shape[:2]
     scale = min(max_side / max(h, w), 1.0)
     if scale < 1.0:
         img = cv2.resize(img, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
 
     # Explicit CPU inference for full safety on free hosts
-    results = model.predict(img, conf=conf, iou=iou, device="cpu", verbose=False)
+    results = model.predict(img, conf=conf, iou=iou, device="cpu", verbose=False, fuse=False, imgsz=768)
     r = results[0]
 
     detections = []

@@ -21,9 +21,14 @@ COPY templates ./templates
 COPY static ./static
 COPY models ./models
 
+# limits CPU math threads = lower RAM spikes
+ENV OMP_NUM_THREADS=1 \
+    MKL_NUM_THREADS=1 \
+    NUMEXPR_NUM_THREADS=1
+
 # App port (hosts like Render/HF will override with $PORT)
 ENV PORT=7860
 EXPOSE 7860
 
 # Run with Gunicorn in production
-CMD ["sh","-c","gunicorn -w 1 -b 0.0.0.0:${PORT:-7860} app:app"]
+CMD ["sh","-c","gunicorn -w 1 --threads 2 --timeout 120 -b 0.0.0.0:${PORT:-7860} app:app"]
