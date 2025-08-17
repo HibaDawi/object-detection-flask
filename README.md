@@ -25,8 +25,9 @@ It includes a simple web UI and a JSON API, and is fully containerized with Dock
 ---
 
 ## 📦 Project Structure
-
+````
 ```text
+````
 object-detection-flask/
 ├─ app.py                # Main Flask app
 ├─ Dockerfile            # Deployment config
@@ -41,7 +42,9 @@ object-detection-flask/
 │  ├─ index.html         # Upload page
 │  └─ result.html        # Results page
 └─ README.md             # Project description
-```text
+````
+````
+````
 ---
 
 ## ▶️ Run Locally (Docker)
