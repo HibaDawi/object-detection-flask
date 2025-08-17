@@ -26,4 +26,4 @@ ENV PORT=7860
 EXPOSE 7860
 
 # Run with Gunicorn in production
-CMD ["sh","-c","gunicorn -w 2 -b 0.0.0.0:${PORT:-7860} app:app"]
+CMD ["sh","-c","gunicorn -w 1 -b 0.0.0.0:${PORT:-7860} app:app"]
